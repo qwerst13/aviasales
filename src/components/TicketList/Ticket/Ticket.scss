@@ -1,0 +1,31 @@
+.MuiPaper-root.MuiCard-root{
+  width: 100%;
+  margin: 20px 0;
+
+  .MuiCardContent-root{
+    padding: 16px;
+
+    &.card__content{
+      .MuiTypography-root:nth-child(1) {
+        color: #A0B0B9;
+      }
+      .MuiTypography-root:nth-child(2) {
+        color: #4A4A4A;
+      }
+    }
+  }
+
+  .MuiTypography-root{
+    font-size: 13px;
+    font-weight: 500;
+
+    &.price{
+      font-size: 24px;
+      color: #1085e1;
+    }
+  }
+
+  .MuiGrid-root{
+    padding-bottom: 5px;
+  }
+}

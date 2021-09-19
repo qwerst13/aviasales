@@ -1,0 +1,32 @@
+.MuiPaper-root.filter {
+  width: 230px;
+
+  background-color: white;
+  border-radius: 5px;
+
+  .MuiTypography-root{
+    font-size: 13px;
+    color: #4A4A4A;
+    font-weight: 500;
+
+    padding: 15px 0 10px 21px;
+
+    &.MuiFormControlLabel-label{
+      font-weight: 300;
+
+      padding: 0;
+      line-height: 2.5;
+    }
+  }
+
+  .MuiFormControlLabel-root{
+    width: 100%;
+    margin: 0;
+    padding-left: 10px;
+
+    &:hover{
+      background-color: #F1FCFF;
+    }
+  }
+}
+

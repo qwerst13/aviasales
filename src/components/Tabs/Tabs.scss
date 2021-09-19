@@ -1,0 +1,17 @@
+.MuiToggleButtonGroup-root {
+  background-color: white;
+
+  .MuiButtonBase-root.MuiToggleButton-root{
+    font-size: 13px;
+    color: #4a4a4a;
+
+    &.Mui-selected{
+      color: #fff;
+      background-color: #2196F3;
+
+      &:hover {
+        background-color: #1085e1;
+      }
+    }
+  }
+}

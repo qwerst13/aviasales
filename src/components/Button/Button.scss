@@ -1,0 +1,11 @@
+// Mui Button custom style
+.MuiButtonBase-root.MuiButton-root{
+  font-size: 13px;
+  color: #fff;
+  background-color: #2196F3;
+  line-height: 2;
+
+  &:hover {
+    background-color: #1085e1;
+  }
+}
