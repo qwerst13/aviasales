@@ -1,31 +1,17 @@
 
-.app {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: stretch;
-  flex-wrap: wrap;
+.app.MuiGrid-root {
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
 
   width: 750px;
-  height: auto;
+  margin: 0 auto;
 
-  header {
-    margin: 32px auto;
+  .main.MuiGrid-root{
+    justify-content: center;
   }
 
-  main {
-    display: flex;
-    flex-direction: row;
-
-    width: 100%;
-    height: 100%;
-
-    aside {
-      width: 250px;
-    }
-
-    section {
-      width: 500px;
-    }
+  .filter__grid.MuiGrid-root{
+    align-self: flex-start;
   }
 }

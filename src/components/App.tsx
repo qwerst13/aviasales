@@ -6,27 +6,28 @@ import { Filter } from './Filter';
 import { Tabs } from './Tabs';
 import { TicketList } from './TicketList';
 import { Button } from './Button';
+import { Grid } from '@material-ui/core';
 
 export function App() {
   return (
-    <div className="app">
-      <header>
+    <Grid className="app" container>
+      <Grid className="header" item xs={12}>
         <a href="/">
           <img alt="logo" src={logo} />
         </a>
-      </header>
+      </Grid>
 
-      <main>
-        <aside>
+      <Grid className="main" container item spacing={2} xs={12}>
+        <Grid className="filter__grid" item>
           <Filter />
-        </aside>
+        </Grid>
 
-        <section>
+        <Grid className="content__grid" item>
           <Tabs />
           <TicketList />
           <Button />
-        </section>
-      </main>
-    </div>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 }
