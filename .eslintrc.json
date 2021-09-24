@@ -22,9 +22,9 @@
   "rules": {
     "max-depth": ["warn", 4],
     "max-len": ["warn", 150],
-    "id-length": ["warn", { "exceptions": ["i", "j", "_", "$"], "min": 2 }],
+    "id-length": ["warn", { "exceptions": ["i", "j", "e", "_", "$"], "min": 2 }],
     "no-console": "warn",
-    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
 
     "no-lonely-if": ["error"],
     "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
