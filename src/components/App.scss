@@ -13,5 +13,9 @@
 
   .filter__grid.MuiGrid-root{
     align-self: flex-start;
+    flex-shrink: 1;
+  }
+  .content__grid.MuiGrid-root{
+    flex-grow: 1;
   }
 }
