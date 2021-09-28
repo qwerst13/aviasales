@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import './App.scss';
 import logo from './Logo.svg';
-import { Filter } from './Filter';
-import { Tabs } from './Tabs';
-import { TicketList } from './TicketList';
-import { Button } from './Button';
+import { Filter } from '../features/Filter';
+import { Tabs } from '../features/Tabs';
+import { TicketList } from '../features/TicketList';
+import { Button } from '../features/Button';
 import { Grid } from '@material-ui/core';
 
 export function App() {
