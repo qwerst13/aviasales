@@ -3,9 +3,9 @@ import { ToggleButton, ToggleButtonGroup } from '@material-ui/core';
 
 import { TabActions } from '../../app';
 import { switchTab, selectActiveTab } from './activeTabSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import './Tabs.scss';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 export function Tabs() {
   const dispatch = useAppDispatch();

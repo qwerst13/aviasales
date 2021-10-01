@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Paper, FormControlLabel, Checkbox, Typography } from '@material-ui/core';
 
 import { check, checkAll, selectFilterCheckboxes } from './filterCheckboxesSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import './Filter.scss';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 export function Filter() {
   const dispatch = useAppDispatch();

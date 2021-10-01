@@ -1,52 +1,68 @@
 import * as React from 'react';
-
-import './Ticket.scss';
+import { format, parseISO, addMinutes } from 'date-fns';
 import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 
-interface TicketProps {}
+import { TicketInterface, SegmentInfo } from '../../../common/TicketInterface';
 
-export function Ticket(props: TicketProps) {
+import './Ticket.scss';
+
+interface TicketProps {
+  data: TicketInterface;
+}
+
+export function Ticket({
+  data: {
+    price,
+    carrier,
+    segments: [forth, back],
+  },
+}: TicketProps) {
+  const formatCurrency = (value: number) =>
+    new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(value);
+
+  function routeInfo({ date, destination, duration, origin, stops }: SegmentInfo) {
+    const formatTime = (time: string) => format(parseISO(time), 'HH:mm');
+    const addAndFormat = (time: string, addTime: number) => format(addMinutes(parseISO(time), addTime), 'HH:mm');
+    const formatDuration = (min: number) => `${Math.trunc(min / 60)}Ч ${min % 60}М`;
+    const formatTransferTitle = ({ length }: typeof stops) => {
+      if (length === 0) return 'БЕЗ ПЕРЕСАДОК';
+      if (length === 1) return '1 ПЕРЕСАДКА';
+      else return `${length} ПЕРЕСАДКИ`;
+    };
+
+    return (
+      <Grid container spacing={2}>
+        <Grid className="route" item xs={4}>
+          <Typography>{`${origin} - ${destination}`}</Typography>
+          <Typography>{`${formatTime(date)} - ${addAndFormat(date, duration)}`}</Typography>
+        </Grid>
+        <Grid className="length" item xs={4}>
+          <Typography>В ПУТИ</Typography>
+          <Typography>{formatDuration(duration)}</Typography>
+        </Grid>
+        <Grid className="stops" item xs={4}>
+          <Typography>{formatTransferTitle(stops)}</Typography>
+          <Typography>{stops.join(', ') || '-'}</Typography>
+        </Grid>
+      </Grid>
+    );
+  }
+
   return (
     <Card>
       <CardContent className="card__header">
         <Grid container>
           <Grid item xs={6}>
-            <Typography className="price">13 400 P</Typography>
+            <Typography className="price">{formatCurrency(price)}</Typography>
           </Grid>
           <Grid textAlign="right" item xs={6}>
-            <img alt="logo" />
+            <img alt="carrier-logo" src={`https://pics.avs.io/99/36/${carrier}.png`} />
           </Grid>
         </Grid>
       </CardContent>
       <CardContent className="card__content">
-        <Grid container spacing={2}>
-          <Grid className="route" item xs={4}>
-            <Typography>MOW - HKT</Typography>
-            <Typography>10:45 - 8:00</Typography>
-          </Grid>
-          <Grid className="length" item xs={4}>
-            <Typography>В ПУТИ</Typography>
-            <Typography>21ч 15м</Typography>
-          </Grid>
-          <Grid className="stops" item xs={4}>
-            <Typography>2 ПЕРЕСАДКИ</Typography>
-            <Typography>HKG, JNB</Typography>
-          </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid className="route" item xs={4}>
-            <Typography>MOW - HKT</Typography>
-            <Typography>11:20 - 00:50</Typography>
-          </Grid>
-          <Grid className="length" item xs={4}>
-            <Typography>В ПУТИ</Typography>
-            <Typography>13ч 30м</Typography>
-          </Grid>
-          <Grid className="stops" item xs={4}>
-            <Typography>1 ПЕРЕСАДКА</Typography>
-            <Typography>HKG</Typography>
-          </Grid>
-        </Grid>
+        {routeInfo(forth)}
+        {routeInfo(back)}
       </CardContent>
     </Card>
   );

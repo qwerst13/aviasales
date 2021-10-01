@@ -1,18 +1,22 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { rootReducer } from './rootReducer';
+import { TicketInterface } from '../common/TicketInterface';
 
 export type TabActions = 'CHEAPEST' | 'FASTEST' | 'OPTIMAL';
 export type Filter = [boolean, boolean, boolean, boolean];
 
+export interface TicketData {
+  status: 'idle' | 'loading' | 'error';
+  isFinished: boolean;
+  token: string | null;
+  tickets: TicketInterface[];
+}
+
 export interface StoreModel {
   activeTab: TabActions;
   filterCheckboxes: Filter;
+  ticketsData: TicketData;
 }
-
-export const initialStore: StoreModel = {
-  activeTab: 'CHEAPEST',
-  filterCheckboxes: [false, false, false, false],
-};
 
 export const store = configureStore({
   reducer: rootReducer,
