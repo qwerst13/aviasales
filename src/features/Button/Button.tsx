@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Button as Btn } from '@material-ui/core';
 
 import './Button.scss';

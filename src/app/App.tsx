@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import './App.scss';
 import logo from './Logo.svg';
 import { Filter } from '../features/Filter';

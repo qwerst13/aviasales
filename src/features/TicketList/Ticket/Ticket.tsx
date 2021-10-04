@@ -1,6 +1,5 @@
-import * as React from 'react';
 import { format, parseISO, addMinutes } from 'date-fns';
-import { Card, CardContent, Grid, Typography } from '@material-ui/core';
+import { Card, CardContent, Grid, Typography, Divider } from '@material-ui/core';
 
 import { TicketInterface, SegmentInfo } from '../../../common/TicketInterface';
 
@@ -60,6 +59,7 @@ export function Ticket({
           </Grid>
         </Grid>
       </CardContent>
+      <Divider variant="middle" />
       <CardContent className="card__content">
         {routeInfo(forth)}
         {routeInfo(back)}

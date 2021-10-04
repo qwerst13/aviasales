@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useMemo } from 'react';
 import { CircularProgress } from '@material-ui/core';
 
 import { Ticket } from './Ticket';
@@ -9,7 +9,6 @@ import { selectFilterCheckboxes } from '../Filter/filterCheckboxesSlice';
 
 import './TicketList.scss';
 
-const { useEffect, useMemo } = React;
 export function TicketList() {
   const dispatch = useAppDispatch();
   const { token, status, isFinished, tickets } = useAppSelector(selectTicketsData);

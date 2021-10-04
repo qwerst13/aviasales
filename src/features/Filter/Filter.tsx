@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Paper, FormControlLabel, Checkbox, Typography } from '@material-ui/core';
 
 import { check, checkAll, selectFilterCheckboxes } from './filterCheckboxesSlice';

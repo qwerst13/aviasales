@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { MouseEvent } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/core';
 
 import { TabActions } from '../../app';
@@ -11,7 +11,7 @@ export function Tabs() {
   const dispatch = useAppDispatch();
   const activeTab = useAppSelector(selectActiveTab);
 
-  const handleChange = (event: React.MouseEvent<HTMLElement>, newTab: TabActions) => dispatch(switchTab(newTab));
+  const handleChange = (event: MouseEvent<HTMLElement>, newTab: TabActions) => dispatch(switchTab(newTab));
 
   return (
     <ToggleButtonGroup color="primary" value={activeTab} exclusive onChange={handleChange} fullWidth={true}>
