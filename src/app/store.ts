@@ -16,6 +16,7 @@ export interface StoreModel {
   activeTab: TabActions;
   filterCheckboxes: Filter;
   ticketsData: TicketData;
+  shownQty: number;
 }
 
 export const store = configureStore({

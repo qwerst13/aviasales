@@ -46,7 +46,6 @@ export function Ticket({
       </Grid>
     );
   }
-
   return (
     <Card>
       <CardContent className="card__header">

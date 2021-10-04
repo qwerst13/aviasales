@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StoreModel, Filter } from '../../app';
 
-const initialState: Filter = [false, false, false, false];
+const initialState: Filter = [true, true, true, true];
 
 const filterCheckboxesSlice = createSlice({
   name: 'filter/filterCheckboxes',

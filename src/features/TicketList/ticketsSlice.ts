@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchTickets, fetchToken } from './ticketsAPIs';
-import { StoreModel, TicketData } from '../../app';
+import { TicketData } from '../../app';
 
 export interface SerializedError {
   name?: string;
@@ -49,9 +49,6 @@ const ticketsSlice = createSlice({
   },
 });
 
-export const selectTicketsData = (state: StoreModel) => state.ticketsData;
+const { reducer } = ticketsSlice;
 
-const { actions, reducer } = ticketsSlice;
-
-export const {} = actions;
 export default reducer;
