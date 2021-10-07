@@ -20,7 +20,7 @@ export const getToken = createAsyncThunk('ticketList/fetchToken', async () => {
 });
 
 const initialState: TicketData = {
-  status: 'idle',
+  status: 'loading',
   isFinished: false,
   token: null,
   tickets: [],
@@ -40,11 +40,17 @@ const ticketsSlice = createSlice({
         state.tickets.push(...tickets);
         state.isFinished = stop;
       })
+      .addCase(getTickets.rejected, (state) => {
+        state.status = 'warning';
+      })
       .addCase(getToken.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(getToken.fulfilled, (state, { payload }) => {
         state.token = payload;
+      })
+      .addCase(getToken.rejected, (state) => {
+        state.status = 'error';
       });
   },
 });

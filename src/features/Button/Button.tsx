@@ -1,7 +1,7 @@
 import { Button as Btn } from '@material-ui/core';
 
 import { showMoreTickets } from './shownCountSlice';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch } from '../../common/hooks';
 
 import './Button.scss';
 

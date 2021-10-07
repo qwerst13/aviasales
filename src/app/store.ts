@@ -6,7 +6,7 @@ export type TabActions = 'CHEAPEST' | 'FASTEST' | 'OPTIMAL';
 export type Filter = [boolean, boolean, boolean, boolean];
 
 export interface TicketData {
-  status: 'idle' | 'loading' | 'error';
+  status: 'idle' | 'loading' | 'warning' | 'error';
   isFinished: boolean;
   token: string | null;
   tickets: TicketInterface[];

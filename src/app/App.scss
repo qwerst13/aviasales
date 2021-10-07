@@ -1,7 +1,7 @@
 
 .app.MuiGrid-root {
   justify-content: flex-start;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 
   width: 750px;
@@ -9,6 +9,10 @@
 
   .main.MuiGrid-root{
     justify-content: center;
+  }
+  .header.MuiGrid-root{
+    text-align: center;
+    padding-top: 24px;
   }
 
   .filter__grid.MuiGrid-root{

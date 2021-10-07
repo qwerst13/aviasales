@@ -1,7 +1,7 @@
 import { Paper, FormControlLabel, Checkbox, Typography } from '@material-ui/core';
 
 import { check, checkAll, selectFilterCheckboxes } from './filterCheckboxesSlice';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../common/hooks';
 
 import './Filter.scss';
 
@@ -17,7 +17,7 @@ export function Filter() {
           <Checkbox
             disableRipple={true}
             checked={checked[0] && checked[1] && checked[2] && checked[3]}
-            onChange={(e) => dispatch(checkAll(e.target.checked))}
+            onChange={(event) => dispatch(checkAll(event.target.checked))}
           />
         }
         label="Все"
